@@ -1,0 +1,4 @@
+B- Este for igual al que el segundo de la primera actividad sirve para mostrar todos los valores del
+arreglo
+C-Muestra el valor que le pertenece al subindice de la rreglo que sea la suma de las varbibales a y b que
+es 7.

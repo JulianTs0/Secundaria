@@ -1,0 +1,62 @@
+#include <stdio.h>
+#include <stdlib.h>
+void circ (void);
+void rit(float VT, float R1, float R2, float R3);
+float it,v1,vp,i2,i3,pt,rt,p1,p2,p3,ip,vt,r1,r2,r3;
+int main()
+{
+    printf("Ingrese la tension de la fuente de alimentacion\n");
+    scanf("%f",&vt);
+    printf("Ingrese el valor de r1\n");
+    scanf("%f",&r1);
+    printf("Ingrese el valor de r2\n");
+    scanf("%f",&r2);
+    printf("Ingrese el valor de r3\n");
+    scanf("%f",&r3);
+    system("cls");
+    circ();
+    rit(vt,r1,r2,r3);
+    printf("Resistencia total : %.4f omhs",rt);
+    printf("\nIntensidad total : %.4f ampers",it);
+    printf("\nVoltaje 1 : %.4f volts ",v1);
+    printf("\nVoltaje del paralelo : %.4f volts",vp);
+    printf("\nIntensidad 2 : %.4f ampers",i2);
+    printf("\nIntensidad 3 : %.4f ampers",i3);
+    printf("\nPotencia total : %.4f watts",pt);
+    printf("\nPotencia 1 : %.4f watts",p1);
+    printf("\nPotencia 2 : %.4f watts",p2);
+    printf("\nPotencia 3 : %.4f watts",p3);
+    return 0;
+}
+void circ (void){
+    printf("                CIRCUITO                  \n");
+    printf(" |¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯|    \n");
+    printf(" |                                   <    \n");
+    printf(" |                                   > %.0f \n",r1);
+    printf(" |                                   <    \n");
+    printf("___ + %.0f                           |    \n",vt);
+    printf(" -                                   |    \n");
+    printf(" |                                |-----| \n");
+    printf(" |                                <     < \n");
+    printf(" |                         %.0f    >     > %.0f \n",r2,r3);
+    printf(" |                                <     < \n");
+    printf(" |                                |-----| \n");
+    printf(" |___________________________________|    \n\n\n\n");
+    return ;
+}
+void rit (float VT, float R1, float R2, float R3){
+float x;
+x = (1/R2)+(1/R3);
+x = 1 / x;
+rt = R1 + x;
+it = VT/rt;
+v1 = it * R1;
+vp = x * it;
+i2 = vp / R2;
+i3 = vp / R3;
+pt = it * VT;
+p1 = it * v1;
+p2 = i2 * vp;
+p3 = i3 * vp;
+return;
+}
